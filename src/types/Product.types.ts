@@ -9,4 +9,5 @@ export type ProductType = {
     brand: string
     category: string
     thumbnail: string
+    images: string[]
 }
