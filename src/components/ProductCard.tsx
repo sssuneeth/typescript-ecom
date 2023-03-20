@@ -7,8 +7,8 @@ interface Props {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
 
-  const truncate = (str: string) => {
-    return str.length > 60 ? str.substring(0, 60) + '...' : str
+  const truncate = (str: string, limit: number) => {
+    return str.length > limit ? str.substring(0, limit) + '...' : str
   }
   return (
     <>
@@ -17,8 +17,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           <img src={product.images[0]} alt="" className='group-hover:scale-[1.02] duration-300 ease-in-out w-full h-full object-cover' />
         </div>
         <div className="product-details p-3 col-span-3">
-          <h3 className='text-lg font-bold'>{product.title}</h3>
-          <h5 className='text-stone-700 sm:text-sm text-xs'>{truncate(product.description)}</h5>
+          <h3 className='text-lg font-bold'>{truncate(product.title, 20)}</h3>
+          <h5 className='text-stone-700 sm:text-sm text-xs'>{truncate(product.description, 60)}</h5>
 
           <div className="product-footer flex justify-between items-center mt-3">
             <div className='flex items-center gap-2'>
